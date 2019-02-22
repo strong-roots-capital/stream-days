@@ -12,13 +12,23 @@ npm install @strong-roots-capital/stream-days
 
 ``` typescript
 import streamDays from '@strong-roots-capital/stream-days'
-// TODO: describe usage
+import { Writable } from 'readable-stream'
+import * as moment from 'moment'
+
+let dates: Date[] = []
+
+const sink = new Writable({
+    objectMode: true,
+    write(date: Date, _: string, callback: any) {
+        dates.push(date)
+        callback()
+    }
+})
+
+const start = moment.utc().toDate()
+const end = moment.utc().add(2, 'days').toDate()
+streamDays(start, end).pipe(sink)
+
+sink.on('finish', () => console.log(dates))
+//=> [ 2019-02-22T22:42:00.812Z, 2019-02-23T22:42:00.812Z, 2019-02-24T22:42:00.812Z ]
 ```
-
-## Related
-
-TODO
-
-## Acknowledgments
-
-TODO
