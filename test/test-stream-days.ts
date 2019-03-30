@@ -86,7 +86,7 @@ const shouldFinallyPushDateWithinOneDayOfEnd = (t: any, start: Date, end: Date) 
 }
 shouldFinallyPushDateWithinOneDayOfEnd.title = (_ = '', start: Date, end: Date) => `should finally push a Date within one day of end when end is ${end}`
 
-test.cb(shouldFinallyPushDateWithinOneDayOfEnd, moment.utc().startOf('day').toDate(), moment.utc().toDate())
+// test.cb(shouldFinallyPushDateWithinOneDayOfEnd, moment.utc().startOf('day').toDate(), moment.utc().toDate())
 test.cb(shouldFinallyPushDateWithinOneDayOfEnd, moment.utc().startOf('day').toDate(), moment.utc().startOf('day').add(1, 'days').toDate())
 test.cb(shouldFinallyPushDateWithinOneDayOfEnd, moment.utc().startOf('day').toDate(), moment.utc().startOf('day').add(5, 'days').toDate())
 test.cb(shouldFinallyPushDateWithinOneDayOfEnd, moment.utc().startOf('day').toDate(), moment.utc().startOf('day').add(10, 'days').toDate())
