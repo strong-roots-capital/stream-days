@@ -1,6 +1,6 @@
 {
   "name": "@strong-roots-capital/stream-days",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a Readable stream of Date objects separated by one day",
   "main": "dist/stream-days.js",
   "types": "dist/stream-days.d.ts",
